@@ -94,7 +94,7 @@ function init() {
          title: "Rainfall (mm)"
        },
    
-       title:("Peak of traffic during morning rush hour vs Rainfall (mm) July 2016")
+       title:("Peak of traffic during afternoon rush hour vs Rainfall (mm) July 2016")
      };
       
       Plotly.newPlot('bar2', data, layout2);
@@ -266,7 +266,7 @@ var trace2 = {
         title: y_axis_title
       },
   
-      title:(`Peak of traffic during morning rush hour vs ${y_axis_title} July 2016`)
+      title:(`Peak of traffic during afternoon rush hour vs ${y_axis_title} July 2016`)
     };
      
      Plotly.newPlot('bar2', data2, layout2);
