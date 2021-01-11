@@ -1,0 +1,143 @@
+<<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Traffic</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Does rainfall and temperature affect traffic?</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well" style= "background-color: #f5f5f5; padding: 20px; outline-color: black;">
+          <h5>Region 1:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)">
+          <option value="BBN">Blackburn</option>
+          <option value="BRI">Brighton</option>
+          <option value="CA1">Carlton</option>
+          <option value="CA2">Carlton 2</option>
+          <option value="CRN">Croydon</option>
+          <option value="DON">Doncaster</option>
+          <option value="ESS">Essendon</option>
+          <option value="ES2">Essendon 2</option>
+          <option value="FRA">Frankston</option>
+          <option value="FR2">Frankston 2</option>
+          <option value="FT1">Footscray 1</option>
+          <option value="FT2">Footscray 2</option>
+          <option value="FT3">Footscray 3</option>
+          <option value="GLI">Glen Iris</option>
+          <option value="GRE">Greensborough</option>
+          <option value="KEW">Kew</option>
+          <option value="MC1">Melbourne City 1</option>
+          <option value="MC2">Melbourne City 2</option>
+          <option value="MC3">Melbourne City 3</option>
+          <option value="MEN">Mentone</option>
+          <option value="MNP">Moonee Ponds</option>
+          <option value="PRS">Preston</option>
+          <option value="PR2">Preston 2</option>
+          <option value="SK1">St Kilda 1</option>
+          <option value="Sk2">St Kilda 2</option>
+          <option value="SPR">Springvale</option>
+          <option value="SP2">Springvale 2</option>
+        </select>
+        
+        </div>
+        <!-- <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div> -->
+      </div>
+      <div class="col-md-2">
+        <div class="well2" style= "background-color: #f5f5f5; padding: 20px; outline-color: black;">
+          <h5>Region 2:</h5>
+          <select id="selDataset2" onchange="optionChanged(this.value)">
+          <option value="BBN">Blackburn</option>
+          <option value="BRI">Brighton</option>
+          <option value="CA1">Carlton</option>
+          <option value="CA2">Carlton 2</option>
+          <option value="CRN">Croydon</option>
+          <option value="DON">Doncaster</option>
+          <option value="ESS">Essendon</option>
+          <option value="ES2">Essendon 2</option>
+          <option value="FRA">Frankston</option>
+          <option value="FR2">Frankston 2</option>
+          <option value="FT1">Footscray 1</option>
+          <option value="FT2">Footscray 2</option>
+          <option value="FT3">Footscray 3</option>
+          <option value="GLI">Glen Iris</option>
+          <option value="GRE">Greensborough</option>
+          <option value="KEW">Kew</option>
+          <option value="MC1">Melbourne City 1</option>
+          <option value="MC2">Melbourne City 2</option>
+          <option value="MC3">Melbourne City 3</option>
+          <option value="MEN">Mentone</option>
+          <option value="MNP">Moonee Ponds</option>
+          <option value="PRS">Preston</option>
+          <option value="PR2">Preston 2</option>
+          <option value="SK1">St Kilda 1</option>
+          <option value="Sk2">St Kilda 2</option>
+          <option value="SPR">Springvale</option>
+          <option value="SP2">Springvale 2</option>
+        </select>
+        </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="well3" style= "background-color: #f5f5f5; padding: 20px; outline-color: black;">
+            <h5>Weather:</h5>
+            <select id="selDataset3" onchange="optionChanged(this.value)">
+            <option value="Rainfall">Rainfall</option>
+            <option value="MaxTemp">MaxTemp</option>
+          </select>
+        </div>
+        </div>
+      <div class="col-md-12">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-12">
+        <div id="bar2"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="bubble2"></div>
+        </div>
+      <!-- <iframe
+      <div id="map"></div>
+      </iframe>   -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+
+<script src="{{url_for('static', filename='config.js')}}"></script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+
+
+  
+</body>
+
+</html>
