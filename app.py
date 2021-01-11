@@ -15,8 +15,7 @@ from flask import Flask, jsonify
 from flask import Flask, render_template
 
 import pandas as pd
-import matplotlib 
-import matplotlib.pyplot as plt
+
 import psycopg2
 
 from sqlalchemy import create_engine
@@ -34,7 +33,7 @@ from sqlalchemy import create_engine
 # Save reference to the table
 conn = psycopg2.connect(host="ec2-18-235-107-171.compute-1.amazonaws.com", port = 5432, database="d7jh5dkda0c4j3", user="bynriruplsdsdx", password = "456abe0bdccb91f64c86884bc754ede216d9b86a4700d3a24782c08adf7f872f")
 
-results = pd.read_sql("SELECT * FROM traffic", conn).head()
+results = pd.read_sql("SELECT * FROM traffic", conn)
 
 results = results.rename(columns={"NM_REGION\t": "NM_REGION"})
 
