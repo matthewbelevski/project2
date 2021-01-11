@@ -32,7 +32,7 @@ from sqlalchemy import create_engine
 #Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-conn = psycopg2.connect(host="localhost", port = 5433, database="postgres", user="postgres", password = "postgre")
+conn = psycopg2.connect(host="ec2-18-235-107-171.compute-1.amazonaws.com", port = 5432, database="d7jh5dkda0c4j3", user="bynriruplsdsdx", password = "456abe0bdccb91f64c86884bc754ede216d9b86a4700d3a24782c08adf7f872f")
 
 results = pd.read_sql("SELECT * FROM traffic", conn).head()
 
