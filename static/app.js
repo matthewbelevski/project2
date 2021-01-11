@@ -53,7 +53,7 @@ function init() {
    x: amPeak,
    y: rainfall,
    mode: 'markers',
-   name: 'AM Peak Average',
+   name: 'AM Peak',
    type: 'scatter',
    text: dates,
    marker: { size: 12}
@@ -63,7 +63,7 @@ function init() {
  
     var layout = {
      xaxis: {
-       title: "AM Peak Average"
+       title: "AM Peak"
      },
      yaxis: {
        title: "Rainfall (mm)"
@@ -78,7 +78,7 @@ function init() {
      x: pmPeak,
      y: rainfall,
      mode: 'markers',
-     name: 'PM Peak Average',
+     name: 'PM Peak',
      type: 'scatter',
      text: dates,
      marker: { size: 12}
@@ -88,7 +88,7 @@ function init() {
    
       var layout2 = {
        xaxis: {
-         title: "PM Peak Average"
+         title: "PM Peak"
        },
        yaxis: {
          title: "Rainfall (mm)"
@@ -223,7 +223,7 @@ var trace2 = {
 
    var layout = {
     xaxis: {
-      title: "AM Peak Average"
+      title: "AM Peak"
     },
     yaxis: {
       title: y_axis_title
@@ -260,7 +260,7 @@ var trace2 = {
   
      var layout2 = {
       xaxis: {
-        title: "PM Peak Average"
+        title: "PM Peak"
       },
       yaxis: {
         title: y_axis_title
